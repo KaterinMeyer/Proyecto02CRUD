@@ -5,8 +5,8 @@ const DataKeys = 'data'
 let DataList = document.getElementById("ListaDatos")
 let CrearBotonUpdateData = document.createElement('button')
 
-function CleanDataList(){
-	get("#ListaDatos").innerHTML = '';
+function CleanDataList() {
+    get("#ListaDatos").innerHTML = '';
 }
 
 //Validador que usuario esta ingresando un contenido en el casillero. Si no es asi, deja un mensaje. 
@@ -58,26 +58,31 @@ let UpdateDataList = () => {
     const DataListString = localStorage.getItem(DataKeys)
     data = JSON.parse(DataListString)
     console.log(data);
-    // ListaDatos.innerHTML = "";
+    ListaDatos.innerHTML = "";
 
     const DataList = document.getElementById('ListaDatos')
 
-data.forEach((data, index) => {
+    data.forEach((data, index) => {
 
- const nodeName = document.createElement('p')
-    const updateButton = document.createElement('button')
-    updateButton.textContent = `Actualizar ${index + 1}`
-    updateButton.setAttribute('onclick', `UpdateData(${index})`)
+        const nodeName = document.createElement('p')
+        const updateButton = document.createElement('button')
+        const dataId = Math.floor(Math.random() * 100)
+        nodeName.setAttribute('id', dataId )
+        
 
-    const deleteButton = document.createElement('button')
-    deleteButton.textContent = `Eliminar ${index + 1}`
+        updateButton.textContent = `Actualizar ${index + 1}`
+        updateButton.setAttribute('onclick', `UpdateData(${index})`)
 
-    deleteButton.setAttribute('onclick', `deleteContact(${index})`)
-    nodeName.textContent = `${index + 1}: ${data}`
-    DataList.appendChild(nodeName)
-    DataList.appendChild(updateButton)
-    DataList.appendChild(deleteButton)
-   });
+        const deleteButton = document.createElement('button')
+        deleteButton.textContent = `Eliminar ${index + 1}`
+        deleteButton.setAttribute('onclick', `deleteContact(${index})`)
+        
+        nodeName.textContent = `${index + 1}: ${data}`
+
+        DataList.appendChild(nodeName)
+        DataList.appendChild(updateButton)
+        DataList.appendChild(deleteButton)
+    });
 };
 
 
