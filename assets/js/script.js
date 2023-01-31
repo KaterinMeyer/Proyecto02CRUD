@@ -36,16 +36,21 @@ let AddData = () => {
     UpdateDataList();
 };
 
-const UpdateData = () => {
-    document.getElementById('ListaDatos').innerHTML
 
+let UpdateData = (index) => {
+    const newName = document.getElementById('input').value;
+    data[index] = newName;
+    localStorage.setItem(DataKeys, JSON.stringify(data))
+    window.location.reload()
+    
+    
 }
-// const UpdateData = (index) => {
-//     const newName = document.getElementById('ListaDatos').value
-//     data[index] = newName
-//     localStorage.setItem(DataKeys, JSON.stringify(data))
-//     window.location.reload()
-// }
+
+
+    // data[dataId] = newName
+    // localStorage.setItem(DataKeys, JSON.stringify(data))
+    // window.location.reload()
+
 
 const deleteContact = (index) => {
     data.splice(index, 1)
