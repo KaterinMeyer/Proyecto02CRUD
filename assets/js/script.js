@@ -8,10 +8,6 @@ let BotonActualizar = document.querySelector('#Updatebutton')
 let BotonEliminar = document.querySelector('#Deletebutton')
 
 
-function CleanDataList() {
-    get("#ListaDatos").innerHTML = '';
-}
-
 //Validador que usuario esta ingresando un contenido en el casillero. Si no es asi, deja un mensaje. 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -32,11 +28,22 @@ let PressEnter = () => {
 //Validación que tiene contenido el input
 let formValidation = () => {
     if (input.value === "") {
-        aviso.innerHTML = "Favor ingrese una tarea";
+        alert ("Favor ingrese una tarea");
     } else {
 
         aviso.innerHTML = "";
         AddData();
+
+    }
+};
+
+let formValidation2 = (e) => {
+    if (input.value === "") {
+        alert ("Favor ingrese una tarea para actualizar la tarea elegida")
+
+    } else {
+
+        aviso.innerHTML = "";
 
     }
 };
@@ -48,15 +55,18 @@ let AddData = () => {
     data.push(input.value);
     localStorage.setItem('data', JSON.stringify(data));
     input.value = '';
+    formValidation2();
     UpdateDataList();
+    
 };
 
 
 let UpdateData = (index) => {
+    formValidation2();
     const newName = document.getElementById('input').value;
     data[index] = newName;
-    localStorage.setItem(DataKeys, JSON.stringify(data))
-    window.location.reload()
+    localStorage.setItem(DataKeys, JSON.stringify(data));
+    window.location.reload();
 
 
 }
@@ -69,11 +79,11 @@ const DeleteData = (index) => {
 }
 
 let UpdateDataList = () => {
-    //agregar clean datalist
+    
     const DataListString = localStorage.getItem(DataKeys)
     data = JSON.parse(DataListString)
     console.log(data);
-    ListaDatos.innerHTML = "";
+    
 
     const DataList = document.getElementById('ListaDatos')
 

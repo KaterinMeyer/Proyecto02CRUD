@@ -36,7 +36,7 @@ body {
     font-size: 15px;
     margin-bottom: 15px;
     margin-top: 15px;
-    width: 300px;
+    width: 500px;
     height: 50px;
 }
 
@@ -71,6 +71,8 @@ button {
     border-radius: 5px;
     padding: 5px;
     text-align: center;
+    font-weight: bold;
+    width: 100px;
 }
 
 #add-button {
@@ -86,8 +88,17 @@ p {
 }
 
 
+.h_line {
+    border-bottom: 2px solid darkblue;
+    width: auto;
+    margin: auto;
+    margin-top: 20px;
+
+}
+
 footer {
     display: flex;
+    margin-top: 5px;
 }
 
 footer img {
@@ -96,12 +107,12 @@ footer img {
 }
 
 footer ul {
-    padding: 50px 0px 50px 25px;
+    padding: 10px 10px 50px 25px;
     list-style: none;
 }
 
 footer h3 {
-    margin: 0px 100px 30px 0px;
+    margin: 0px 80px 30px 0px;
 }
 
 
@@ -115,19 +126,32 @@ footer ul {
         font-size: 15px;
 }
 
+#input{
+    width: 300px;
+}
 }
 
 @media screen and (max-width: 420px) {
 
 footer ul {
     display: contents;
-    padding: 25px, 0px, 25px, 10px;
-    font-size: 10px;
+    padding: 10px, 10px, 25px, 10px;
+    font-size: 11px;
+    
+}
+
+
+#input{
+    width: 300px;
 }
 
 footer img {
     width: 10px;
     height: 10px;
 }
+button {
+    width: 80px;
+}
+
 
 }
