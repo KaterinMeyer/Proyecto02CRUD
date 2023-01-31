@@ -3,7 +3,10 @@ let input = document.getElementById("input")
 let data = [];
 const DataKeys = 'data'
 let DataList = document.getElementById("ListaDatos")
-let CrearBotonUpdateData = document.createElement('button')
+let Addbutton = document.querySelector("#add-button")
+let BotonActualizar = document.querySelector('#Updatebutton')
+let BotonEliminar = document.querySelector('#Deletebutton')
+
 
 function CleanDataList() {
     get("#ListaDatos").innerHTML = '';
@@ -15,12 +18,23 @@ form.addEventListener("submit", (e) => {
     formValidation();
 });
 
+
+//Ingresar datos apretando Enter o el boton agregar
+let PressEnter = () => {
+    document.getElementById("form").addEventListener("keypress", (event) => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("add-button").click();
+        }
+    })
+};
+
+//Validación que tiene contenido el input
 let formValidation = () => {
     if (input.value === "") {
         aviso.innerHTML = "Favor ingrese una tarea";
-        console.log("failure");
     } else {
-        console.log("successs");
+
         aviso.innerHTML = "";
         AddData();
 
@@ -33,6 +47,7 @@ let AddData = () => {
 
     data.push(input.value);
     localStorage.setItem('data', JSON.stringify(data));
+    input.value = '';
     UpdateDataList();
 };
 
@@ -42,17 +57,12 @@ let UpdateData = (index) => {
     data[index] = newName;
     localStorage.setItem(DataKeys, JSON.stringify(data))
     window.location.reload()
-    
-    
+
+
 }
 
 
-    // data[dataId] = newName
-    // localStorage.setItem(DataKeys, JSON.stringify(data))
-    // window.location.reload()
-
-
-const deleteContact = (index) => {
+const DeleteData = (index) => {
     data.splice(index, 1)
     localStorage.setItem(DataKeys, JSON.stringify(data))
     window.location.reload()
@@ -71,17 +81,18 @@ let UpdateDataList = () => {
 
         const nodeName = document.createElement('p')
         const updateButton = document.createElement('button')
-        const dataId = Math.floor(Math.random() * 100)
-        nodeName.setAttribute('id', dataId )
-        
 
-        updateButton.textContent = `Actualizar ${index + 1}`
+
+        updateButton.textContent = `Actualizar`
         updateButton.setAttribute('onclick', `UpdateData(${index})`)
+        updateButton.setAttribute('id', "Updatebutton")
+
 
         const deleteButton = document.createElement('button')
-        deleteButton.textContent = `Eliminar ${index + 1}`
-        deleteButton.setAttribute('onclick', `deleteContact(${index})`)
-        
+        deleteButton.textContent = `Eliminar`
+        deleteButton.setAttribute('onclick', `DeleteData(${index})`)
+        deleteButton.setAttribute('id', "Deletebutton")
+
         nodeName.textContent = `${index + 1}: ${data}`
 
         DataList.appendChild(nodeName)
@@ -102,4 +113,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+Addbutton.addEventListener("mouseenter", () => {
+    Addbutton.style.backgroundColor = "darkblue"
+    Addbutton.style.color = "white"
+}
+)
 
+Addbutton.addEventListener("mouseleave", () => {
+    Addbutton.style.backgroundColor = "white"
+    Addbutton.style.color = "darkblue"
+}
+)

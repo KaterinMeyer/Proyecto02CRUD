@@ -8,23 +8,60 @@
     <title>Proyecto 02 - CRUD</title>
     <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
-<header>
-    
+
+<header class="mainfont">
+    <ul>
+        <h1>Tareas del hogar</h1>
+    </ul>
 </header>
+
 <body>
-    <h1>Tareas del hogar</h1>
-    <form id="form">
-        <label for="post">Ingrese una tarea:</label>
-        <br><br>
-        <textarea name="post" id="input" cols="30" rows="10"></textarea>
-        <br><br>
-        <div id="aviso"></div>
-        <button type="submit">Agregar</button>
-    </form>
+    <div class="container">
+        <form id="form">
+            <label id="titulo" for="post">Ingrese una tarea:</label>
+            
+            <div>
+                <input name="post" id="input" cols="30" rows="5" placeholder="Ej: Lavar la loza, hacer la cama..."></>
+                <div id="aviso"></div>
+                <button id="add-button" type="submit">Agregar</button>
+                
+            </div>
+        </form>
 
-    <div id="ListaDatos" class="datos"></div>
-
+        <div id="ListaDatos" class="datos"></div>
+    </div>
     <script src="/assets/js/script.js"></script>
 </body>
+
+<footer class="mainfont">
+    <div>
+        <ul class="contacto">
+            <li>
+                <h3>Contacto</h3>
+            </li>
+            <img src="/assets/images/facebook-logo.png">
+            <img src="/assets/images/instagram-logo.png">
+            <img src="/assets/images/twitter-logo.png">
+        </ul>
+    </div>
+    <div>
+        <ul>
+            <li>
+                <h3>Servicio al Cliente</h3>
+            </li>
+            <li>Contáctanos</li>
+            <li>Preguntas Frecuentes</li>
+        </ul>
+    </div>
+    <div>
+        <ul>
+            <li>
+                <h3>Legal</h3>
+            </li>
+            <li>Privacidad</li>
+            <li>Términos y Condiciones</li>
+        </ul>
+    </div>
+</footer>
 
 </html>
