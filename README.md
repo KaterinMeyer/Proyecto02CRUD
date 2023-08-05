@@ -5,7 +5,9 @@ Se solicita crear una aplicación CRUD, que es el acrónimo de "Create", "Read",
 Se requiere usar lo aprendido anteriormente (HTML y CSS) además de implementar la herramienta LocalStorage. Esta herramienta se utiliza para almacenar datos de manera local en el navegador que utiliza el usuario mientras navega. 
 El resultado de este proyecto es una plataforma para guardar, editar y borrar tareas del hogar.
 Para su creación se implementó el programa Visual Studio Code.
-
+<div>
+Link al proyecto: https://shorturl.at/fnoy3
+</div>
 
 ## Estructura
 
